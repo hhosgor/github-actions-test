@@ -8,11 +8,14 @@ jobs:
     env:
       FILE: keko.txt
     steps:
-     - name: Set the value
-       id: step_one
-       run: |
-        echo "action_state=yellow" >> $GITHUB_ENV
-     - name: Use the value
-       id: step_two
-       run: |
-         echo "${{ env.action_state }}"
+      - name: " Check file"
+        run: |
+          find . -name "4857_account_trees.json"
+          echo "IS_EQUAL=$(1 == 1 )" >> $GITHUB_ENV
+          echo "FOO1=$(find . -name "4857_account_trees.json")" >> $GITHUB_ENV
+      - name: "Get values"
+        run: |
+          echo "FOO=$(ls -lart)" >> $GITHUB_ENV
+          echo " kekoooo FOO1= ${{env.FOO1}} "
+          echo " kekoooo IS_EQUAL= ${{env.IS_EQUAL}} "
+          echo " kekoooo FOO1= ${{env.FOO}} "
