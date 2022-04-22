@@ -6,12 +6,11 @@ jobs:
   file_job:
     runs-on: ubuntu-latest
     env:
-      FILE: hello.txt
+      FILE: keko.txt
     steps:
       - name: " Check file"
         run: |
-          if [ -f "${FILE}" ]; then
-            echo "$FILE exists."
-          else 
-           echo "$FILE does not exist."
-          fi;
+          find . -name "4857_account_trees.json"
+          echo "::set-output name=IS_FILE_FOUND::$(find . -name "4857_account_trees.json")"
+          echo "FOO=$(find . -name "4857_account_trees.json")" >> $GITHUB_ENV
+          echo " kekoooo FOO= ${{env.FOO}} "
