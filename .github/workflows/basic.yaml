@@ -11,6 +11,8 @@ jobs:
       - name: " Check file"
         run: |
           find . -name "4857_account_trees.json"
-          echo "::set-output name=IS_FILE_FOUND::$(find . -name "4857_account_trees.json")"
-          echo "FOO=$(find . -name "4857_account_trees.json")" >> $GITHUB_ENV
+          echo "IS_EQUAL=$(1 == 1 )" >> $GITHUB_ENV
+          echo "FOO1=$(find . -name "4857_account_trees.json")" >> $GITHUB_ENV
+          echo "FOO=$(ls -lart)" >> $GITHUB_ENV
           echo " kekoooo FOO= ${{env.FOO}} "
+          echo " kekoooo IS_EQUAL= ${{env.IS_EQUAL}} "
