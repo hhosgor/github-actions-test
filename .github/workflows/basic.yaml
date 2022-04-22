@@ -11,9 +11,10 @@ jobs:
       - name: " Check file"
         run: |
           find . -name "4857_account_trees.json"
-          echo "IS_EQUAL=${{1 == 1 }}" >> $GITHUB_ENV
-          echo "keko=${ find . -name 4857_account_trees.json } " >> $GITHUB_ENV
+          echo "IS_EQUAL=${{1 == 1 }}" >> $GITHUB_ENV         
       - name: "Get values"
         run: |
           echo " kekoooo FOO1= ${{ env.IS_EQUAL }} "
-           echo " kekoooo FOO1= ${{ env.keko }} "
+          
+      - name: bash-version
+        run: echo "::add-mask::$MY_NAME"
