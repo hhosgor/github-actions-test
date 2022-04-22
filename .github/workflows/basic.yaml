@@ -11,8 +11,7 @@ jobs:
       - name: " Check file"
         run: |
           find . -name "4857_account_trees.json"
-          echo "IS_EQUAL=$(1 == 1 )" >> $GITHUB_ENV
-          echo "FOO1=$(find . -name "4857_account_trees.json")" >> $GITHUB_ENV
+          echo "IS_EQUAL=${{1 == 1 }}" >> $GITHUB_ENV
       - name: "Get values"
         run: |
           echo "FOO=$(ls -lart)" >> $GITHUB_ENV
