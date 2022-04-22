@@ -1,7 +1,6 @@
 name: Greeting on variable day
 
-on:
-  workflow_dispatch
+on: [workflow_dispatch]
 
 env:
   DAY_OF_WEEK: Monday
@@ -13,6 +12,20 @@ jobs:
       Greeting: Hello
     steps:
       - name: "Say Hello Mona it's Monday"
-        run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
+        run: |
+          echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
         env:
-          First_Name: Mona
+          First_Name: Keko
+
+  file_job:
+    runs-on: ubuntu-latest
+    env:
+      FILE: hello.txt
+    steps:
+      - name: " Check file"
+      - run: |
+          if [ -f "${FILE}" ]; then
+            echo "$FILE exists."
+          else 
+           echo "$FILE does not exist."
+          fi;
